@@ -39,3 +39,7 @@ button {
 #total-hours-input {
   width: 5ch; /* Set width to 3 characters */
 }
+
+.small-font {
+  font-size: 0.8em; /* Adjust the size as needed */
+}
