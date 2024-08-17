@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.week-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.week-row label {
+  width: 200px;
+}
+
+.week-row input {
+  width: 40px; /* Adjust width to fit 2 characters */
+  margin-right: 10px;
+}
+
+button {
+  margin-top: 20px;
+}
+
+#remaining-time {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#total-hours-section {
+  margin-bottom: 20px; /* Add spacing between total hours and week entry */
+}
+
+#total-hours-input {
+  width: 5ch; /* Set width to 3 characters */
+}
