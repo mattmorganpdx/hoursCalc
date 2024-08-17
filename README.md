@@ -1,4 +1,5 @@
 # Monthly Remaining Hours Calc
+https://mattmorganpdx.github.io/hoursCalc/
 
 ## Purpose
 
