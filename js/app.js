@@ -8,27 +8,27 @@ document.addEventListener('DOMContentLoaded', () => {
   let totalMinutes = (parseInt(localStorage.getItem('totalHours'), 10) || 120) * 60;
 
   function getWeeksOfMonth(year, month) {
-    const weeks = [];
-    let date = new Date(year, month, 1);
-    let weekStart = new Date(date);
-    weekStart.setDate(weekStart.getDate() - weekStart.getDay());
+  const weeks = [];
+  let date = new Date(year, month, 1);
+  let weekStart = new Date(date);
+  weekStart.setDate(weekStart.getDate() - weekStart.getDay());
 
-    while (date.getMonth() === month) {
-      const weekEnd = new Date(weekStart);
-      weekEnd.setDate(weekEnd.getDate() + 6);
+  while (date.getMonth() === month || weekStart.getMonth() === month) {
+    const weekEnd = new Date(weekStart);
+    weekEnd.setDate(weekEnd.getDate() + 6);
 
-      if (weekEnd.getMonth() !== month) {
-        weekEnd.setDate(0);
-      }
-
-      weeks.push({ start: new Date(weekStart), end: new Date(weekEnd) });
-
-      weekStart.setDate(weekStart.getDate() + 7);
-      date.setDate(date.getDate() + 7);
+    if (weekEnd.getMonth() !== month && weekEnd.getDate() < 7) {
+      weekEnd.setDate(weekEnd.getDate() + 1);
     }
 
-    return weeks;
+    weeks.push({ start: new Date(weekStart), end: new Date(weekEnd) });
+
+    weekStart.setDate(weekStart.getDate() + 7);
+    date.setDate(date.getDate() + 7);
   }
+
+  return weeks;
+}
 
   function formatDate(date) {
     return `${date.getMonth() + 1}/${date.getDate()}`;
